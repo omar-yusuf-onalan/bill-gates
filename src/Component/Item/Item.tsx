@@ -14,9 +14,9 @@ function Item(prop: Prop) {
         <>
             <div className='container'>
                 <div className='item-description'>
-                    <img src={prop.img} alt={prop.name}/>
+                    <div><img src={prop.img} alt={prop.name}/></div>
                     <h2>{prop.name}</h2>
-                    <h4>{prop.price}</h4>
+                    <h4>${prop.price}</h4>
                 </div>
 
                 <div className='buy-sell'>
