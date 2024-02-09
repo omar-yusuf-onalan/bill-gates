@@ -1,35 +1,41 @@
-import './BuyButton.style.css'
-import data from '../../Data/Items'
-import { useContext } from 'react';
-import MoneyContext from '../../Context/MoneyContext';
-import InputContext from '../../Context/InputContext';
+import "./BuyButton.style.css";
+import data from "../../Data/Items";
+import { useContext } from "react";
+import MoneyContext from "../../Context/MoneyContext";
+import InputContext from "../../Context/InputContext";
 
 interface Prop {
     itemId: string;
 }
 
 function BuyButton(prop: Prop) {
-    const { currentMoney, setCurrentMoney } = useContext(MoneyContext);
+    const { currentMoney, setCurrentMoney, newData, setNewData } = useContext(MoneyContext);
     const { input, setInput } = useContext(InputContext);
 
     const getItem = () => {
-        return data.find(obj => obj.id === prop.itemId);
-    }
+        return newData.find((obj) => obj.id === prop.itemId);
+    };
 
     const buy = () => {
-        if(input <= 0 || input === null) return;
+        if (input <= 0 || input === null) return;
 
-        if(getItem().price * Number(input) > currentMoney) return;
-        
-        setCurrentMoney(currentMoney - getItem().price * Number(input))
+        if (getItem().price * Number(input) > currentMoney) return;
 
-        getItem().bought += Number(input);
-        console.log(getItem())
-    }
-    
+        setCurrentMoney(prevMoney => prevMoney - getItem().price * Number(input));
+
+        const updateData = [...newData];
+        const newIndex = newData.indexOf(getItem());
+
+        updateData[newIndex].bought += Number(input);
+
+        setNewData(updateData);
+
+        console.log(getItem());
+    };
+
     return (
         <>
-           <button onClick={buy}>Buy</button> 
+            <button onClick={buy}>Buy</button>
         </>
     );
 }
