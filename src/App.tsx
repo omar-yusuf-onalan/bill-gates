@@ -1,13 +1,16 @@
-import './App.css'
-import Profile from './Component/Profile/Profile.tsx'
+import "./App.css";
+import MoneyBar from "./Component/MoneyBar/MoneyBar.tsx";
+import Profile from "./Component/Profile/Profile.tsx";
 
 function App() {
-
-  return (
-    <>
-      <Profile></Profile>
-    </>
-  )
+    return (
+        <>
+            <div className="app-container">
+                <Profile></Profile>
+                <MoneyBar></MoneyBar>
+            </div>
+        </>
+    );
 }
 
-export default App
+export default App;
