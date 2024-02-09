@@ -9,7 +9,7 @@ interface Prop {
 }
 
 function SellButton(prop: Prop) {
-    const { currentMoney, setCurrentMoney } = useContext(MoneyContext);
+    const { currentMoney, setCurrentMoney, newData, setNewData } = useContext(MoneyContext);
     const { input, setInput } = useContext(InputContext);
 
     const getItem = () => {
@@ -19,9 +19,15 @@ function SellButton(prop: Prop) {
     const sell = () => {
         if (getItem().bought < input) return;
 
-        setCurrentMoney(currentMoney + getItem().price * Number(input));
+        setCurrentMoney(prevMoney => prevMoney + getItem().price * Number(input));
 
-        getItem().bought -= Number(input);
+        const updateData = [...newData];
+        const newIndex = newData.indexOf(getItem());
+
+        updateData[newIndex].bought -= Number(input);
+
+        setNewData(updateData);
+
         console.log(getItem());
     };
 
