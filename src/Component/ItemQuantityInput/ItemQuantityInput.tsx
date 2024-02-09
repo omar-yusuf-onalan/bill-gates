@@ -3,7 +3,7 @@ import './ItemQuantityInput.style.css'
 function ItemQuantityInput() {
     return (
         <>
-        <input type="number" />
+        <input className='input' type="number" />
         </>
     );
 }
