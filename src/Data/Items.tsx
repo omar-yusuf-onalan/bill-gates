@@ -1,0 +1,40 @@
+const data = [
+    {
+        id: '1',
+        img: 'src/assets/big-mac.jpg',
+        name: 'Bic Mac',
+        price: 2
+    },
+    {
+        id: '2',
+        img: 'src/assets/flip-flops.jpg',
+        name: 'Flip Flops',
+        price: 3
+    },
+    {
+        id: '3',
+        img: 'src/assets/coca-cola-pack.jpg',
+        name: 'Coca-Cola Pack',
+        price: 5
+    },
+    {
+        id: '4',
+        img: 'src/assets/skyscraper.jpg',
+        name: 'Skyscraper',
+        price: 850000000
+    },
+    {
+        id: '5',
+        img: 'src/assets/cruise-ship.jpg',
+        name: 'Cruise Ship',
+        price: 930000000
+    },
+    {
+        id: '6',
+        img: 'src/assets/nba-team.jpg',
+        name: 'NBA Team',
+        price: 2120000000
+    }
+]
+
+export default data;
