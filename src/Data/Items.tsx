@@ -2,7 +2,7 @@ const data = [
     {
         id: '1',
         img: 'src/assets/big-mac.jpg',
-        name: 'Bic Mac',
+        name: 'Big Mac',
         price: 2,
         bought: 0
     },
